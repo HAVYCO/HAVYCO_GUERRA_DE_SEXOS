@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0715">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HAVYCO Guerra de Sexos">
+<link rel="apple-touch-icon" href="assets/logo-havyco.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+<title>HAVYCO Guerra de Sexos +18</title>
+</head>
+<body>
+<div id="ageGate" class="age-gate">
+  <div class="age-card">
+    <img src="assets/logo-havyco.png" alt="HAVYCO">
+    <h1>HAVYCO</h1>
+    <h2>GUERRA DE SEXOS</h2>
+    <div class="age-badge">+18</div>
+    <p>Juego social para adultos. Todas las pruebas son voluntarias y pueden omitirse sin penalización.</p>
+    <label class="confirm"><input id="ageCheck" type="checkbox"> Confirmo que soy mayor de 18 años.</label>
+    <button id="enterBtn" class="primary wide">ENTRAR</button>
+  </div>
+</div>
+
+<div class="app">
+<header class="topbar">
+  <div class="brand">
+    <img src="assets/logo-havyco.png" alt="HAVYCO">
+    <div><h1>HAVYCO</h1><b>GUERRA DE SEXOS +18</b><span>Batalla • Retos • Diversión</span></div>
+  </div>
+  <nav>
+    <button class="tab active" data-view="batalla">⚔️ Batalla</button>
+    <button class="tab" data-view="equipos">👥 Equipos</button>
+    <button class="tab" data-view="pruebas">🎲 Pruebas</button>
+    <button class="tab" data-view="historial">🏆 Historial</button>
+    <button class="tab" data-view="pro">💎 PRO</button>
+    <button class="tab" data-view="config">⚙ Ajustes</button>
+  </nav>
+  <button id="installBtn" class="install hidden">⬇ INSTALAR</button>
+</header>
+
+<div id="offlineBadge" class="offline hidden">📴 MODO SIN CONEXIÓN</div>
+
+<main>
+<section id="batalla" class="view active">
+  <div class="battle-grid">
+    <aside class="team-card women">
+      <div class="team-symbol">♀</div>
+      <h2 id="teamANameLabel">MUJERES</h2>
+      <div id="teamAScore" class="score">0</div>
+      <div id="teamAPlayer" class="active-player">Sin jugadores</div>
+      <button id="teamAWinBtn" class="score-btn pink">＋ PUNTO EQUIPO A</button>
+    </aside>
+
+    <section class="arena panel">
+      <div class="versus">VS</div>
+      <div id="roundMode" class="mode-badge">PREGUNTA RELÁMPAGO</div>
+      <div id="levelBadge" class="level-badge">SUAVE</div>
+      <div id="roundCard" class="round-card">
+        <div id="roundTitle" class="round-title">LA BATALLA COMIENZA</div>
+        <div id="roundText" class="round-text">Agrega jugadores a ambos equipos y pulsa NUEVA PRUEBA.</div>
+      </div>
+      <div class="main-actions">
+        <button id="newRoundBtn" class="primary">🎲 NUEVA PRUEBA</button>
+        <button id="skipRoundBtn" class="secondary">⏭ PASAR</button>
+        <button id="doubleBtn" class="purple">✌️ DOBLE O NADA</button>
+      </div>
+      <div class="timer-wrap">
+        <span>⏱️</span><strong id="timer">20</strong>
+        <button id="startTimerBtn" class="mini">INICIAR</button>
+      </div>
+    </section>
+
+    <aside class="team-card men">
+      <div class="team-symbol">♂</div>
+      <h2 id="teamBNameLabel">HOMBRES</h2>
+      <div id="teamBScore" class="score">0</div>
+      <div id="teamBPlayer" class="active-player">Sin jugadores</div>
+      <button id="teamBWinBtn" class="score-btn blue">＋ PUNTO EQUIPO B</button>
+    </aside>
+  </div>
+
+  <div class="panel level-panel">
+    <h2>ELIGE EL NIVEL</h2>
+    <div class="levels">
+      <button class="level active" data-level="suave">🛡️ <b>SUAVE</b><small>Nivel 1</small></button>
+      <button class="level" data-level="atrevido">🔥 <b>ATREVIDO</b><small>Nivel 2</small></button>
+      <button class="level prolevel" data-level="hot">🔥 <b>HOT</b><small>Nivel 3 • PRO</small></button>
+      <button class="level prolevel" data-level="picante">🌶️ <b>PICANTE</b><small>Nivel 4 • PRO</small></button>
+      <button class="level prolevel" data-level="extremo">😈 <b>EXTREMO</b><small>Nivel 5 • PRO</small></button>
+    </div>
+  </div>
+</section>
+
+<section id="equipos" class="view">
+  <div class="workspace split">
+    <div class="panel">
+      <h2>EQUIPO A</h2>
+      <label>Nombre del equipo <input id="teamAName" value="MUJERES"></label>
+      <label>Jugador <input id="teamAPlayerInput" placeholder="Ej.: Andrea"></label>
+      <button id="addTeamAPlayer" class="pink wide">＋ AGREGAR</button>
+      <div id="teamAList" class="list"></div>
+    </div>
+    <div class="panel">
+      <h2>EQUIPO B</h2>
+      <label>Nombre del equipo <input id="teamBName" value="HOMBRES"></label>
+      <label>Jugador <input id="teamBPlayerInput" placeholder="Ej.: Carlos"></label>
+      <button id="addTeamBPlayer" class="blue wide">＋ AGREGAR</button>
+      <div id="teamBList" class="list"></div>
+    </div>
+  </div>
+</section>
+
+<section id="pruebas" class="view">
+  <div class="workspace">
+    <div class="panel">
+      <h2>MODOS DE JUEGO</h2>
+      <div class="modes">
+        <button class="mode-card" data-mode="relampago">⚡ Pregunta Relámpago</button>
+        <button class="mode-card" data-mode="duelo">⚔️ Duelo 1 vs 1</button>
+        <button class="mode-card" data-mode="mimica">🎭 Mímica</button>
+        <button class="mode-card" data-mode="quien">👀 ¿Quién sabe más?</button>
+        <button class="mode-card pro-mode" data-mode="roba">💰 Roba Puntos • PRO</button>
+        <button class="mode-card pro-mode" data-mode="final">🏆 Batalla Final • PRO</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="historial" class="view">
+  <div class="workspace">
+    <div class="panel">
+      <h2>HISTORIAL DE RONDAS</h2>
+      <div id="historyList" class="list"></div>
+      <button id="clearHistoryBtn" class="danger">BORRAR HISTORIAL</button>
+    </div>
+  </div>
+</section>
+
+<section id="pro" class="view">
+  <div class="workspace">
+    <div class="panel pro-panel">
+      <div class="diamond">💎</div>
+      <h2>HAVYCO GUERRA DE SEXOS PRO</h2>
+      <p>Desbloquea niveles Hot, Picante y Extremo, además de Roba Puntos, Batalla Final y jugadores ilimitados.</p>
+      <div class="plans">
+        <div class="plan-card">
+          <h3>GRATIS</h3><strong>$0</strong>
+          <ul><li>Suave + Atrevido</li><li>Hasta 4 por equipo</li><li>Modos básicos</li><li>Offline</li></ul>
+        </div>
+        <div class="plan-card featured">
+          <h3>PRO</h3><strong>Licencia</strong>
+          <ul><li>Todos los niveles</li><li>Jugadores ilimitados</li><li>Roba Puntos</li><li>Batalla Final</li><li>Offline</li></ul>
+        </div>
+      </div>
+      <button id="buyProBtn" class="whatsapp">💬 COMPRAR PRO POR WHATSAPP</button>
+      <div class="license-box">
+        <h3>ACTIVAR LICENCIA PRO</h3>
+        <textarea id="licenseCode" placeholder="Pega aquí tu código HVGS1..."></textarea>
+        <button id="activateLicenseBtn" class="primary">ACTIVAR LICENCIA</button>
+        <div id="licenseStatus" class="license-status">Plan actual: GRATIS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="config" class="view">
+  <div class="workspace split">
+    <div class="panel">
+      <h2>PARTIDA</h2>
+      <label>Tiempo por prueba (segundos) <input id="roundSeconds" type="number" min="5" max="120" value="20"></label>
+      <label class="toggle-row">Vibración <input id="vibrateToggle" type="checkbox" checked></label>
+    </div>
+    <div class="panel">
+      <h2>REINICIAR</h2>
+      <button id="resetGameBtn" class="danger wide">REINICIAR PARTIDA COMPLETA</button>
+    </div>
+  </div>
+</section>
+</main>
+<footer>HAVYCO • Competencia, respeto y diversión</footer>
+</div>
+
+<div id="winnerModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="celebrate">🏆 🎉 ⚔️</div>
+    <h2 id="winnerTitle">¡PUNTO!</h2>
+    <div id="winnerTeam" class="winner-team">—</div>
+    <button id="closeWinnerModal" class="primary wide">CONTINUAR</button>
+  </div>
+</div>
+
+<script src="license.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

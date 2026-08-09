@@ -1,0 +1,18 @@
+{
+  "name": "HAVYCO Guerra de Sexos +18",
+  "short_name": "HAVYCO Guerra",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070611",
+  "theme_color": "#0a0715",
+  "description": "Juego social de equipos para adultos.",
+  "icons": [
+    {
+      "src": "assets/logo-havyco.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
